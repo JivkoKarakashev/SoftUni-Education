@@ -13,4 +13,4 @@ The "Programming Basics" course provides basic programming skills required for a
 5. [Nested Loops](/Programming-Basics-November-2022/4.For-Loop/)
 
 ## Certificate
-[](/recources/basics.jpeg)
+![Image](https://github.com/user-attachments/assets/4e37239a-3874-4654-83e6-3762eb9270cf)
