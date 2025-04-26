@@ -1,4 +1,5 @@
 # Programming Basics with JavaScript November 2022
+[![Image](https://upload.wikimedia.org/wikipedia/commons/5/55/Software-University-Logo-blue-horizontal.png)](https://softuni.bg/trainings/3877/programming-basics-with-javascript-november-2022)
 
 ## Course Introduction
 
