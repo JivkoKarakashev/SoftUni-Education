@@ -8,6 +8,13 @@ With "Programming Fundamentals", students begin to study SoftUni's internal prog
 ## Acquired Skills
 
 1. [Basic Syntax Conditional Statements and Loops](/Programming-Fundamentals-January-2023/1.Basic-Syntax-Conditional-Statements-and-Loops/)
+2. [Data Types and Variables](/Programming-Fundamentals-January-2023/2.Data-Types-and-Variables/)
+3. [Arrays](/Programming-Fundamentals-January-2023/3.Arrays/)
+4. [Functions](/Programming-Fundamentals-January-2023/4.Functions/)
+5. [Arrays Advanced](/Programming-Fundamentals-January-2023/5.Arrays-Advanced/)
+6. [Objects and Classes](/Programming-Fundamentals-January-2023/6.Objects-and-Classes/)
+7. [Associative Arrays](/Programming-Fundamentals-January-2023/7.Associative-Arrays/)
+8. [Text Processing](/Programming-Fundamentals-January-2023/8.Text-Processing/)
 
 ## Certificate
 ![Image](/recources/fundamentals.jpeg)
