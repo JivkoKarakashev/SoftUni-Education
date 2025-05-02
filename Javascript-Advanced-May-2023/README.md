@@ -7,15 +7,15 @@ In the "JS Advanced" course, students will gain in-depth knowledge of the JavaSc
 
 ## Acquired Skills
 
-1. [Syntax Functions and Statements](/SoftUni-Education/Javascript-Advanced-May-2023/1.Syntax-Functions-and-Statements/)
-2. [Arrays and Nested Arrays](/SoftUni-Education/Javascript-Advanced-May-2023/2.Arrays-and-Nested-Arrays/)
-3. [Objects and Composition](/SoftUni-Education/Javascript-Advanced-May-2023/3.Objects-and-Composition/)
-4. [DOM Introduction](/SoftUni-Education/Javascript-Advanced-May-2023/4.DOM-Introduction/)
-5. [DOM Events](/SoftUni-Education/Javascript-Advanced-May-2023/5.DOM-Events/)
-6. [Advanced Functions](/SoftUni-Education/Javascript-Advanced-May-2023/6.Advanced-Functions/)
-7. [Unit Testing and Error Handling](/SoftUni-Education/Javascript-Advanced-May-2023/7.Unit-Testing-and-Error-Handling/)
-8. [Classes](/SoftUni-Education/Javascript-Advanced-May-2023/8.Classes/)
-9. [Prototypes and Inheritance](/SoftUni-Education/Javascript-Advanced-May-2023/9.Prototypes-and-Inheritance/)
+1. [Syntax Functions and Statements](/Javascript-Advanced-May-2023/1.Syntax-Functions-and-Statements/)
+2. [Arrays and Nested Arrays](/Javascript-Advanced-May-2023/2.Arrays-and-Nested-Arrays/)
+3. [Objects and Composition](/Javascript-Advanced-May-2023/3.Objects-and-Composition/)
+4. [DOM Introduction](/Javascript-Advanced-May-2023/4.DOM-Introduction/)
+5. [DOM Events](/Javascript-Advanced-May-2023/5.DOM-Events/)
+6. [Advanced Functions](/Javascript-Advanced-May-2023/6.Advanced-Functions/)
+7. [Unit Testing and Error Handling](/Javascript-Advanced-May-2023/7.Unit-Testing-and-Error-Handling/)
+8. [Classes](/Javascript-Advanced-May-2023/8.Classes/)
+9. [Prototypes and Inheritance](/Javascript-Advanced-May-2023/9.Prototypes-and-Inheritance/)
 
 ## Certificate
 ![Image](/recources/advanced.jpeg)
