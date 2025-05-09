@@ -1,6 +1,5 @@
+import { baseUrl } from "./constants.js";
 import { getUserData } from "./getUserData.js";
-
-const baseUrl = 'http://localhost:3030';
 
 async function getFurnitureData() {
     const response = await fetch(`${baseUrl}/data/furniture`);
@@ -75,8 +74,6 @@ async function logout() {
     // console.log(response);
     if (response.status === 204 || response.status === 403) {
         localStorage.removeItem('userData');
-        // updateNav(false);
-        window.location.href = './index.html';
     }
 }
 

@@ -1,9 +1,9 @@
 const { chromium } = require('playwright-chromium');
 const { expect } = require('chai');
 
-const host = 'http://localhost:5500/06.Furniture/src/'; // Application host (NOT service host - that can be anything)
+const host = 'http://localhost:5500/Javascript-Applications-June-2023/03.Data-and-Authentication/06.Furniture'; // Application host (NOT service host - that can be anything)
 const interval = 300;
-const DEBUG = false;
+const DEBUG = true;
 const slowMo = 500;
 
 const mockData = {

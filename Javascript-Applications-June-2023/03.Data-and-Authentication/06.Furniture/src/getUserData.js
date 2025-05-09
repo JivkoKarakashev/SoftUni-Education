@@ -1,22 +1,20 @@
 function getUserData() {
-    let userData = {
-        'email': '',
-        'username': '',
-        '_id': '',
-        'accessToken': ''
-    };
+    let userData = null;
 
     const lsData = localStorage.getItem('userData');
     if (lsData) {
         const { email, username, _id, accessToken } = JSON.parse(lsData);
         userData = { ...userData, email, username, _id, accessToken };
-    } else {
-        userData = null;
     }
 
     return userData;
 }
 
+function hasUser() {
+    return !!getUserData();
+}
+
 export {
-    getUserData
+    getUserData,
+    hasUser
 }

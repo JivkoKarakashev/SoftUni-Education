@@ -1,23 +1,41 @@
-import { getUserData } from "./getUserData.js";
+import { onLogout } from "./auth.js";
+import { navEL } from "./constants.js";
+import { hasUser } from "./getUserData.js";
+import { renderHomePage } from "./renderHomePage.js";
+import { renderLoginPage } from "./renderLoginPage.js";
 
-const navEL = document.querySelector('header > nav');
+function switchActiveButtons(activatedBtn) {
+    const catalogPageBtn = navEL.querySelector('a:first-of-type');
+    const loginPageBtn = navEL.querySelector('div > a');
 
-function updateNav(hasUser) {
-    // console.log(navEL);
-    // console.log(hasUser);
-    const navElements = createNavElements(hasUser);
-    // console.log(navElements);
+    switch (activatedBtn) {
+        case 'catalog': {
+            catalogPageBtn.classList.add('active');
+            loginPageBtn.classList.remove('active');
+            break;
+        };
+        case 'login': {
+            catalogPageBtn.classList.remove('active');
+            loginPageBtn.classList.add('active');
+            break;
+        }
+    }
+}
+
+function updateNav() {
+    const navElements = createNavElements();
     navEL.replaceChildren(...navElements);
 }
 
-function createNavElements(hasUser) {
+const createNavElements = () => {
     const navElements = [];
     const anchorCatalogEl = document.createElement('a');
     anchorCatalogEl.classList.add('active');
     anchorCatalogEl.setAttribute('href', './index.html');
     anchorCatalogEl.text = 'Catalog';
+    anchorCatalogEl.addEventListener('click', renderHomePage);
     navElements.push(anchorCatalogEl);
-    const divEl = hasUser
+    const divEl = hasUser()
         ? createUserDivElement()
         : createGuestDivElement();
 
@@ -26,7 +44,7 @@ function createNavElements(hasUser) {
     return navElements;
 }
 
-function createUserDivElement() {
+const createUserDivElement = () => {
     const divEl = document.createElement('div');
     divEl.setAttribute('id', 'user');
     const anchorLogoutEl = document.createElement('a');
@@ -35,50 +53,22 @@ function createUserDivElement() {
     anchorLogoutEl.text = 'Logout';
     anchorLogoutEl.addEventListener('click', onLogout);
     divEl.appendChild(anchorLogoutEl);
-    // divEl.addEventListener('click', onLogout);
     return divEl;
 }
 
-function createGuestDivElement() {
+const createGuestDivElement = () => {
     const divEl = document.createElement('div');
     divEl.setAttribute('id', 'guest');
-    const anchorLogoutEl = document.createElement('a');
-    anchorLogoutEl.setAttribute('href', './login.html');
-    anchorLogoutEl.text = 'Login';
-    divEl.appendChild(anchorLogoutEl);
+    const anchorLoginEl = document.createElement('a');
+    anchorLoginEl.setAttribute('href', './login.html');
+    anchorLoginEl.text = 'Login';
+    anchorLoginEl.addEventListener('click', renderLoginPage);
+    divEl.appendChild(anchorLoginEl);
+
     return divEl;
-}
-
-function onLogout(event) {
-    event.preventDefault();
-    console.log('clicked');
-    logout(event)
-        .then((res) => {
-            console.log(res);
-        })
-        .catch(err => {
-            alert(err.message);
-        });
-}
-
-async function logout() {
-    const { accessToken } = getUserData();
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-Authorization': accessToken,
-            'Content-Type': 'application/json',
-        },
-    };
-    const response = await fetch('http://localhost:3030/users/logout', options);
-    console.log(response);
-    if (response.status === 204 || response.status === 403) {
-        localStorage.removeItem('userData');
-        // updateNav(false);
-        window.location.href = './index.html';
-    }
 }
 
 export {
+    switchActiveButtons,
     updateNav
 }
