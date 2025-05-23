@@ -1,0 +1,21 @@
+{
+  "name": "applications",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "playwright-chromium": "^1.35.1"
+  },
+  "dependencies": {
+    "chai": "^4.3.7",
+    "lit-html": "^2.7.5",
+    "page": "^1.11.6"
+  },
+  "description": ""
+}

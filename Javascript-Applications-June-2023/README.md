@@ -10,6 +10,11 @@ In the course "JS Applications" students will learn what HTTP requests are and h
 1. [HTTP and REST Services](/Javascript-Applications-June-2023/01.HTTP-and-REST-Services/)
 2. [Asynchronous Programming](/Javascript-Applications-June-2023/02.Asynchronous-Programming/)
 3. [Data and Authentication](/Javascript-Applications-June-2023/03.Data-and-Authentication/)
+4. [Single Page Applications](/Javascript-Applications-June-2023/04.Single-Page-Applications/)
+5. [Architecture and Testing](/Javascript-Applications-June-2023/05.Architecture-and-Testing/)
+6. [Client Side Rendering](/Javascript-Applications-June-2023/06.Client-Side-Rendering/)
+7. [Routing](/Javascript-Applications-June-2023/07.Routing/)
+8. [Modular Applications](/Javascript-Applications-June-2023/08.Modular-Applications/)
 
 ## Certificate
 ![Image](/recources/applications.jpeg)
