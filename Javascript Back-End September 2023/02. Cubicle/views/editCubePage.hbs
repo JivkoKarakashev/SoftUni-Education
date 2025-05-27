@@ -1,0 +1,24 @@
+<h1>Edit Cube</h1>
+{{#if error}}
+{{#each error}}
+<div class="container"><span class="error">{{this}}</span></div>
+{{/each}}
+{{/if}}
+<div class="form">
+    <form action="/details/{{cubeObj._id}}/edit" method="POST">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" value="{{cubeObj.name}}">
+        <label for="description">Description</label>
+        <textarea id="description" name="description">{{cubeObj.description}}</textarea>
+        <label for="image">ImageUrl</label>
+        <input type="text" id="image" name="imageUrl" value="{{cubeObj.imageUrl}}">
+        <label for="difficulty">Difficulty</label>
+        <select id="difficulty" name="difficultyLevel" value="{{currDifficultyLevel}}" />
+        <option value="{{cubeObj.difficultyLevel}}">{{currDifficultyLevel}}</option>
+        {{#each leftDifficultyLevels}}
+        <option value="{{@key}}">{{this}}</option>
+        {{/each}}
+        </select>
+        <input type="submit" value="Edit">
+    </form>
+</div>

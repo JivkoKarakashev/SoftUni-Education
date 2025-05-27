@@ -1,0 +1,19 @@
+<main class="edit">
+    <!-- Edit Page (Only for logged-in users) -->
+    <section id="create">
+        <div class="form">
+            <h2>Edit item</h2>
+            <form class="create-form" method="post" action="/details/{{animal._id}}/edit">
+                <input {{#if error.fields.name}}class="field-error"{{/if}} type="text" name="name" id="name" placeholder="Name" value="{{animal.name}}" />
+                <input {{#if error.fields.years}}class="field-error"{{/if}} type="text" name="years" id="years" placeholder="Years" value="{{animal.years}}" />
+                <input {{#if error.fields.kind}}class="field-error"{{/if}} type="text" name="kind" id="kind" placeholder="Kind" value="{{animal.kind}}" />
+                <input {{#if error.fields.image}}class="field-error"{{/if}} type="text" name="image" id="animal-img" placeholder="Image url" value="{{animal.image}}" />
+                <input {{#if error.fields.need}}class="field-error"{{/if}} type="text" name="need" id="needs-of" placeholder="Needs of" value="{{animal.need}}" />
+                <input {{#if error.fields.location}}class="field-error"{{/if}} type="text" name="location" id="location" placeholder="Location" value="{{animal.location}}" />
+                <textarea {{#if error.fields.description}}class="field-error"{{/if}} id="description" placeholder="Description..." name="description">{{animal.description}}</textarea>
+
+                <button type="submit">Edit</button>
+            </form>
+        </div>
+    </section>
+</main>

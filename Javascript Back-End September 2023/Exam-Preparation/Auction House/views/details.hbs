@@ -1,0 +1,47 @@
+<!-- Details Page -->
+<section id="catalog-section">
+
+    <h1 class="item">
+        {{auction.name}}
+    </h1>
+    <div class="item padded">
+
+        <div class="layout right large">
+
+            <div class="col">
+                <img src="{{auction.imgurl}}" class="img-large">
+            </div>
+
+            <div class="content pad-med">
+
+                <p>In category: <strong>{{auction.category}}</strong></p>
+                <p>{{auction.description}}</p>
+
+                <div class="align-center">
+                    <div>
+                        Current price: $<strong>{{auction.price}}</strong>
+                    </div>
+
+                    <!-- If current user can place a bid -->
+                    {{#if bids.canBid}}
+                    <form class="vertical" method="post" action="/details/{{auction._id}}/bid">
+                        <label><span>Bid amount</span><input type="number" name="bidamount"></label>
+                        <input class="action" type="submit" value="Place bid">
+                    </form>
+                    {{/if}}
+
+                    <!-- If current user is the bidder -->
+                    {{#if bids.hasBidded}}
+                    <div>
+                        You are currently the <strong>highest bidder</strong> for this auction
+                    </div>
+                    {{/if}}
+                </div>
+
+            </div>
+        </div>
+
+        <footer>Listed by Peter Jackson</footer>
+    </div>
+
+</section>

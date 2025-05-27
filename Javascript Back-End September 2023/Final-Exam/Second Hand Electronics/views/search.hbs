@@ -1,0 +1,25 @@
+<section class="search">
+    <h1>Search</h1>
+
+    <form class="search-form" action="#" method="">
+        <input type="text" class="search-name" name="name" placeholder="Search Name..." value="{{search.name}}">
+        <input type="text" class="search-type" name="type" placeholder="Search Type..." value="{{search.type}}">
+        <button type="submit" class="btn-search">Search</button>
+    </form>
+
+    <!--If there are matches after search-->
+    {{#if offers}}
+    <div class="search-result">
+        <div class="search-list">
+            {{#each offers}}
+            {{>searchCard}}
+            {{/each}}
+        </div>
+    </div>
+    <!--If there are no matches-->
+    {{else}}
+    <div class="no-match">
+        <p>No match was found!</p>
+    </div>
+    {{/if}}
+</section>

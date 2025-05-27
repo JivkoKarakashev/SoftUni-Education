@@ -1,0 +1,11 @@
+<h1>Browser</h1>
+<form action="" method="get">
+  <input type="text" class="search" name="search" placeholder="Search..." value="{{searchQueries.search}}">
+  <input type="number" name="from" class="difficulty" placeholder="Difficulty from..." value="{{searchQueries.from}}">
+  <span>-</span>
+  <input type="number" name="to" class="difficulty" placeholder="Difficulty to..." value="{{searchQueries.to}}">
+  <input type="submit" value="search">
+</form>
+{{#each cubesObjsArr}}
+{{>cubeCard}}
+{{/each}}

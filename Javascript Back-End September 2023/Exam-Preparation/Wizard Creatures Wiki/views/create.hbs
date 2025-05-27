@@ -1,0 +1,41 @@
+<section id="create-page">
+    <div class="createSection">
+        <div class="info">
+            <h2>"Dobby Never Meant To Kill! Dobby Only Meant to Maim, or Seriously Injure."</h2>
+        </div>
+
+        <form action="/create" method="POST" class="createForm">
+            <h2>Create Post</h2>
+            <ul class="noBullet">
+                <li>
+                    <label for="name">Name:</label>
+                    <input type="text" class="inputFields" id="name" placeholder="Delphini" name="name" value="{{body.name}}" />
+                </li>
+                <li>
+                    <label for="species">Species:</label>
+                    <input type="text" class="inputFields" id="species" placeholder="Human" name="species" value="{{body.species}}" />
+                </li>
+                <li>
+                    <label for="skin">Skin Colour:</label>
+                    <input type="text" class="inputFields" id="skin" placeholder="Black" name="skincolor" value="{{body.skincolor}}" />
+                </li>
+                <li>
+                    <label for="eye">Eye Colour:</label>
+                    <input type="text" class="inputFields" id="eye" placeholder="Black" name="eyecolor" value="{{body.eyecolor}}" />
+                </li>
+                <li>
+                    <label for="image">Creature Image:</label>
+                    <input type="text" class="inputFields" id="image" placeholder="http:/..." name="imgUrl" value="{{body.imgUrl}}" />
+                </li>
+                <li>
+                    <label for="description">Description:</label>
+                    <textarea id="description" class="inputFields" name="description" placeholder="Creature...">{{body.description}}</textarea>
+                </li>
+                <li id="center-btn">
+                    <button id="create-btn">Create</button>
+                </li>
+            </ul>
+        </form>
+
+    </div>
+</section>
