@@ -2,9 +2,7 @@
 
 ## Live Version
 
-```
 You can try the deployed version [HERE](https://www.used-cars-react-spa.jivkokarakashev.dev).
-```
 
 ## Overview
 
