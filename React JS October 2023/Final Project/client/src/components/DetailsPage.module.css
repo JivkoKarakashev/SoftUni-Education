@@ -8,50 +8,56 @@
     padding: 8px 16px;
 }
 
-.align-center {
-    text-align: center;
-}
+.layout.right.large {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    overflow-x: scroll;
 
-.layout {
-    padding: 0;
-}
+    & .col {
+        flex: 1 1 45%;
+        min-width: 450px;
 
-.layout.large .col {
-    width: 400px;
-}
+        & img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
 
-.layout.right .col {
-    float: right;
-}
+    & .content.pad-med {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
 
-.img-large {
-    display: block;
-    max-width: 400px;
-}
+        & .controls {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            text-align: center;
+        }
+    }
 
-.layout.right.large .content {
-    margin-right: 400px;
-}
+    & .equipment {
+        flex: 1 1 100%;
 
-.pad-med {
-    padding: 8px 16px;
-}
+        & .equipment-list {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
 
-.catalog {
-    list-style: none;
-    padding: 0;
-}
-
-.facility-icon {
-    width: 24px;
-    height: 24px;
+    }
 }
 
 .action {
-    display: inline-block;
+    flex: 1 1 30%;
     border: none;
-    padding: 8px 16px;
-    margin: 4px 8px;
+    padding: .5em 1em;
+    margin: .25em .5em;
     text-decoration: none;
     border-radius: 10px;
     background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));

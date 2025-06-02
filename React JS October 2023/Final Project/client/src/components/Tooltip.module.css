@@ -1,37 +1,48 @@
 .custom-tooltip {
-    position: relative;
-    display: block;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: .5em;
+    border: 1px dotted #000;
+    min-width: fit-content;
+
+    & .facility-icon {
+        width: 1.5em;
+        height: 1.5em;
+    }
+}
+
+.custom-tooltip:not(:nth-child(1)) {
+    border-top: none;
 }
 
 .custom-tooltip .custom-tooltip-text {
     visibility: hidden;
-    width: 300px;
+    opacity: 0;
+    width: 0;
+    height: 0;
     background-color: hsla(160, 40%, 55%);
     color: black;
     text-align: center;
     border-radius: 1px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -40px;
-    opacity: 0;
     transition: opacity 0.7s;
 }
 
-.custom-tooltip .custom-tooltip-text::after {
+.custom-tooltip::after {
     content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
+    position: relative;
     margin-left: -5px;
     border-width: 5px;
     border-style: solid;
     border-color: gray transparent transparent transparent;
 }
 
-.custom-tooltip:hover .custom-tooltip-text {
+.custom-tooltip:hover .custom-tooltip-text,
+.custom-tooltip:active .custom-tooltip-text {
     visibility: visible;
     opacity: 1;
+    width: 100%;
+    height: fit-content;
+    text-wrap: wrap;
 }

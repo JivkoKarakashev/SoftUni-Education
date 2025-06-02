@@ -1,16 +1,33 @@
 section {
-    margin: 32px;
+    margin: 2em;
 }
 
 .item {
     box-shadow: var(--shadow);
     border-radius: var(--round);
     overflow: hidden;
+
+    & .col {
+        flex: 1 1 50%;
+    }
+
+    & .content {
+        flex: 1 1 50%;
+        display: flex;
+        gap: 2em;
+        padding: .5em .5em;
+        flex-direction: column;
+        justify-content: space-between;
+
+        & p {
+            text-align: center;
+        }
+    }
 }
 
 h1 {
-    font-size: 150%;
-    padding: 16px;
+    font-size: 1.5em;
+    padding: 1em;
 }
 
 h1,
@@ -19,24 +36,14 @@ header {
 }
 
 .layout {
-    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
     background-color: white;
-}
-
-.layout.left.med .content {
-    margin-left: 300px;
-    height: 300px;
-}
-
-.layout.left .col {
-    float: left;
-}
-
-.layout.med .col {
-    width: 300px;
 }
 
 .img-med {
@@ -44,25 +51,23 @@ main {
     max-width: 300px;
 }
 
-.pad-med {
-    padding: 8px 16px;
-}
-
-p {
-    margin-bottom: 16px;
-}
-
 .align-center {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: .5em;
+    align-items: center;
 }
 
 .action {
-    display: inline-block;
+    flex: 1 1 20%;
+    max-width: 30%;
+    min-width: fit-content;
     border: none;
-    padding: 8px 16px;
-    margin: 4px 8px;
-    text-decoration: none;
     border-radius: 10px;
+    text-decoration: none;
+    padding: .5em 1em;
     background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
     color: white;
 }

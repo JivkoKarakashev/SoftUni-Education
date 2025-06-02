@@ -65,7 +65,7 @@ main label select {
 }
 
 .error-box {
-    color: red;
+    color: #ff6f6f;
     padding: 16px 16px;
     margin: 32px;
     background-color: hsl(var(--action-color), var(--action-s), 25%);
@@ -73,5 +73,5 @@ main label select {
 }
 
 .field-error {
-    border: 1px solid red;
+    border: 1px solid #ff6f6f;
 }

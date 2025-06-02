@@ -1,37 +1,38 @@
 /* Header and navigation menu */
 
-.title-logo {
-    display: block;
-    float: left;
-    width: 200px;
-    text-decoration: none;
-    color: white;
-}
+.title-logo-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 
-.title-logo:hover {
-    background-color: hsl(var(--secondary-color), var(--secondary-s), var(--secondary-l));
-}
+    & .title-logo {
+        display: flex;
+        text-decoration: none;
+        color: white;
 
-.title-logo img {
-    height: 64px;
-}
+        & img {
+            display: block;
+            height: 64px;
+        }
+    }
 
-.title-logo>img {
-    display: block;
-    float: left;
-    margin-right: 16px;
-}
+    & .title {
+        display: flex;
+        align-items: center;
+        font-size: 1.5em;
+        color: #fff;
+    }
 
-.title-logo>span {
-    font-size: 24px;
-    display: block;
-    padding: 4px;
+    & .welcome {
+        display: flex;
+        padding-right: 1em;
+        align-items: center;
+    }
 }
 
 .main-nav {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    display: flex;
+    background-color: #e2e5e4;
 }
 
 .nav-mid {
@@ -39,8 +40,11 @@
 }
 
 .main-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    width: 100%;
     list-style: none;
-    display: inline-block;
 }
 
 .main-nav li {

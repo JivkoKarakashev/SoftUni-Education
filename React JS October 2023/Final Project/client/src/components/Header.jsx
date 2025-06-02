@@ -21,12 +21,15 @@ const Header = () => {
 
     return (
         <header>
-            <Link to="/" className={styles["title-logo"]}>
-                <img src="/static/images/logo.jpg" />
-                <span>Used Cars Market</span>
-            </Link>
 
-            <span>Welcome, {hasUser ? user.username : 'Guest'}</span>
+            <div className={styles["title-logo-wrapper"]}>
+                <Link to="/" className={styles["title-logo"]}>
+                    <img src="/static/images/logo.jpg" />
+                </Link>
+                <span className={styles["title"]}>Car Marketplace</span>
+
+                <span className={styles["welcome"]}>Welcome, {hasUser ? user.username : 'Guest'}</span>
+            </div>
 
             {/* <!--Navigation--> */}
             <nav className={`${styles["main-nav"]} ${styles["nav-mid"]}`}>

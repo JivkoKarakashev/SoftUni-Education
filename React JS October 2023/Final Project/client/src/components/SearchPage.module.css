@@ -5,7 +5,7 @@
 }
 
 .padded>* {
-    padding: 8px 16px;
+    padding: .5em 1em;
 }
 
 .align-center {
@@ -63,10 +63,10 @@ main label select {
     margin-right: auto;
     width: 200px;
 }
+
 /* ///////////////////////////////////////////// */
 .spaced>* {
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin: 2em 0;
 }
 
 .item {
@@ -78,59 +78,64 @@ main label select {
 .catalog {
     list-style: none;
     padding: 0;
-}
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
 
-.catalog.cards {
-    margin-left: -16px;
-    margin-right: -16px;
-}
+    & li {
+        flex: 1 1 30%;
+        min-width: 200px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
 
-.catalog.cards::after {
-    content: "";
-    display: table;
-    clear: both;
-}
+        & header.pad-med {
+            padding: .5em 1em;
+        }
 
-.catalog.cards li {
-    float: left;
-    width: 284px;
-    margin: 16px;
-    margin-top: 0;
-}
-
-.pad-med {
-    padding: 8px 16px;
+        & main.align-center {
+            height: fit-content;
+        }
+    }
 }
 
 .catalog.cards h2 {
-    height: 52px;
-    overflow: hidden;
-}
-
-h2 {
-    font-size: 125%;
-}
-
-.catalog.cards li>main {
-    height: 200px;
-    overflow: hidden;
-}
-
-.align-center {
+    height: 3.25em;
+    font-size: 1.25em;
     text-align: center;
 }
 
-main {
-    padding-bottom: 32px;
-}
-
 main>img {
-    width: 284px;
-    height: 168px;
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .catalog.cards footer {
+    display: flex;
+    padding: .5em 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
     overflow: hidden;
+
+    & a {
+        max-width: fit-content;
+        border: none;
+        padding: .5em 1em;
+        text-decoration: none;
+        border-radius: 10px;
+        background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+        color: white;
+    }
+
+    & a:hover {
+        border-radius: 10px;
+        background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+        cursor: pointer;
+        color: white;
+    }
 }
 
 footer {
@@ -138,24 +143,6 @@ footer {
     color: white;
 }
 
-.action {
-    display: inline-block;
-    border: none;
-    padding: 8px 16px;
-    margin: 4px 8px;
-    text-decoration: none;
-    border-radius: 10px;
-    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
-    color: white;
-}
-
-.action:hover {
-    border-radius: 10px;
-    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
-    cursor: pointer;
-    color: white;
-}
-
-.pad-large {
-    padding: 32px;
+.item.align-center {
+    padding: 2em;
 }

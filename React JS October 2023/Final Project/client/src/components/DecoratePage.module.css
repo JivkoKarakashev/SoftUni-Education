@@ -8,7 +8,121 @@
     padding: 8px 16px;
 }
 
-.layout {
+.layout.right.large {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    overflow-x: scroll;
+
+    & .col {
+        flex: 1 1 45%;
+        min-width: 200px;
+        position: sticky;
+        top: 0;
+
+        & img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    & .content.pad-med {
+        flex: 1 1 45%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        align-items: flex-start;
+        z-index: 1;
+
+        & form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+            & .equipment {
+                list-style-type: none;
+                display: flex;
+                flex-direction: column;
+
+                & * ul {
+                    list-style-type: none;
+                }
+
+                & .equipment-row {
+                    display: flex;
+                    width: 100%;
+                    flex-wrap: wrap;
+
+                    & .top-row {
+                        flex: 1 1 100%;
+                        display: flex;
+                        align-items: center;
+                        padding: 0 .5em;
+                        justify-content: space-between;
+
+                        & .wrapper {
+                            flex: 1 1 30%;
+                            display: flex;
+                            justify-content: center;
+                        }
+
+                        & input[type=checkbox] {
+                            width: unset;
+                        }
+                    }
+
+                    & .bottom-row {
+                        flex: 1 1 100%;
+                    }
+                }
+
+                & .facility-icon {
+                    width: 1.5em;
+                    height: 1.5em;
+                }
+            }
+
+            & .controls {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                & .action {
+                    text-align: center;
+                    flex: 1 1 30%;
+                    border: none;
+                    padding: .5em 1em;
+                    margin: .25em .5em;
+                    text-decoration: none;
+                    border-radius: 10px;
+                    background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
+                    color: white;
+                }
+
+                & .action:hover {
+                    border-radius: 10px;
+                    background-color: hsl(var(--action-color), var(--action-s), var(--action-l));
+                    cursor: pointer;
+                    color: white;
+                }
+            }
+        }
+
+
+        /* } */
+
+
+        /* & .controls {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            text-align: center;
+        } */
+    }
+}
+
+/* .layout {
     padding: 0;
 }
 
@@ -67,7 +181,7 @@ main label input[type="checkbox"] {
 
 li {
    width: fit-content; 
-}
+} */
 
 /* .cta {
     display: block;

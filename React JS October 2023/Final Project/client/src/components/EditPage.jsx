@@ -148,7 +148,7 @@ const EditPage = () => {
 
     return (
         // <--Edit Page-->
-        <section id="create-section">
+        <section id="edit-section">
             <h1 className={styles["item"]}>Edit Ad</h1>
             <main className={`${styles["item"]} ${styles["padded"]} ${styles["align-center"]}`}>
                 <form className={`${styles["layout"]} ${styles["left"]} ${styles["large"]}`} method="post" action="details/:id/edit" onSubmit={updateHandler}>

@@ -140,24 +140,26 @@ const DetailsPage = () => {
                         <img src={car.image} className={styles["img-large"]} />
                     </div>
                     <div className={`${styles['content']} ${styles['pad-med']}`}>
-                        <p>Mileage: <strong>{car.mileage} km</strong></p>
-                        <p>description {car.description}</p>
-                        <div className={styles["align-center"]}>
-                            <div>Price: <strong>{car.price}$</strong></div>
-                            <div>Fuel: <strong>{car.fuel}</strong></div>
-                            <div>Year: <strong>{car.year}</strong></div>
-                            <div>Location: <strong>{car.location}</strong></div>
-                            <ul className={styles["catalog"]}>
-                                {equipment.map((e) =>
-                                    <EquipmentItem key={e['_id']}{...e} />
-                                )}
-                            </ul>
-                            {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>)}
-                            {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
-                            {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>)}
-                            {!carDetails['isOwner'] && carDetails['canBuy'] && (<Link className={styles["action"]} to={`/details/${id}/buy`} onClick={buyHandler}>Buy</Link>)}
-                            {hasUser && sold != 0 && (<div><strong>The Car was Sold!</strong></div>)}
-                        </div>
+                        <p><strong>Mileage:</strong> {car.mileage} km</p>
+                        <p><strong>Description:</strong> {car.description}</p>
+                            <p><strong>Price:</strong> {car.price}$</p>
+                            <p><strong>Fuel:</strong> {car.fuel}</p>
+                            <p><strong>Year:</strong> {car.year}</p>
+                            <p><strong>Location:</strong> {car.location}</p>
+                            <div className={styles["controls"]}>
+                                {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/decorate`}>Decorate</Link>)}
+                                {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/edit`}>Edit</Link>)}
+                                {carDetails['isOwner'] && !sold && (<Link className={styles["action"]} to={`/details/${id}/delete`} onClick={deleteHandler}>Delete</Link>)}
+                                {!carDetails['isOwner'] && carDetails['canBuy'] && (<Link className={styles["action"]} to={`/details/${id}/buy`} onClick={buyHandler}>Buy</Link>)}
+                                {hasUser && sold != 0 && (<div><strong>The Car was Sold!</strong></div>)}
+                            </div>
+                    </div>
+                    <div className={styles["equipment"]}>
+                        <ul className={styles["equipment-list"]}>
+                            {equipment.map((e) =>
+                                <EquipmentItem key={e['_id']}{...e} />
+                            )}
+                        </ul>
                     </div>
                 </main>
             </div>

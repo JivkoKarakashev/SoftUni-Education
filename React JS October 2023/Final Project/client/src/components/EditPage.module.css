@@ -5,63 +5,52 @@
 }
 
 .padded>* {
-    padding: 8px 16px;
+    padding: .5em 1em;
 }
 
-.align-center {
-    text-align: center;
-}
+.layout.left.large {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
 
-.layout {
-    padding: 0;
-}
+    & .col.aligned {
+        flex: 1 1 30%;
+        display: flex;
+        flex-direction: column;
 
-.layout.large .col {
-    width: 400px;
-}
+        & label {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
 
-.layout.left .col {
-    float: left;
-}
+    & .content.pad-med.align-center.vertical {
+        flex: 1 1 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
-.aligned {
-    text-align: right;
-    display: inline-block;
-}
+        & label {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            width: 100%;
+            text-align: center;
 
-.aligned label>* {
-    margin: 8px 16px;
-}
-
-.layout.left.large .content {
-    margin-left: 400px;
-}
-
-.pad-med {
-    padding: 8px 16px;
-}
-
-.vertical label {
-    margin: 16px;
-    text-align: center;
-}
-
-.vertical label>span {
-    display: block;
-}
-
-textarea {
-    text-align: left;
-    display: block;
-    width: 100%;
-    resize: vertical;
+            & textarea {
+                min-height: 8em;
+            }
+        }
+    }
 }
 
 .action {
     display: inline-block;
     border: none;
-    padding: 8px 16px;
-    margin: 4px 8px;
+    padding: .5em 1em;
+    margin: .25em .5em;
     text-decoration: none;
     border-radius: 10px;
     background-color: hsl(var(--action-color), var(--action-s), calc(var(--action-l) - 20%));
@@ -76,13 +65,17 @@ textarea {
 }
 
 .error-box {
-    color: red;
-    padding: 16px 16px;
-    margin: 32px;
+    flex: 1 1 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #ff6f6f;
+    padding: 1em;
+    margin: 1em;
     background-color: hsl(var(--action-color), var(--action-s), 25%);
     box-shadow: var(--shadow);
 }
 
 .field-error {
-    border: 1px solid red;
+    border: 1px solid #ff6f6f;
 }

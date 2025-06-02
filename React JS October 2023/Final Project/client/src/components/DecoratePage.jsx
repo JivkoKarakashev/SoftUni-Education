@@ -144,24 +144,292 @@ const DecoratePage = () => {
                     <div className={`${styles["content"]} ${styles["pad-med"]}`}>
                         <p>Equipment:</p>
                         <form action={`details/${id}/decorate`} method="post" onSubmit={confirmEquipment}>
-                            <ul className={styles["catalog"]}>
-                                <li className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="4WD" checked={equipment['4WD']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/XYsy7r2w/4x4.png" /> 4WD <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['4WD']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="airbag" checked={equipment['airbag']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/28FZMch9/airbag.png" /> Airbag <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['airbag']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="air-conditioning" checked={equipment['air-conditioning']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/8zp6SRbp/aircon.png" /> Air Conditioning <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['air-conditioning']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="alloy-wheels" checked={equipment['alloy-wheels']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/5tjQHfGD/alloy-wheel.png" /> Alloy wheels <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['alloy-wheels']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="bluetooth" checked={equipment['bluetooth']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/hGwzTHRv/bluetooth.png" /> Bluetooth <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['bluetooth']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="cd" checked={equipment['cd']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/Wzcdfg3P/cd.png" /> CD <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['cd']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="cruise-control" checked={equipment['cruise-control']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/qR3tLjpL/cruise-control.png" /> Cruise control <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['cruise-control']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="keyless" checked={equipment['keyless']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/7h15vhGJ/keyless.png" /> Keyless <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['keyless']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="led" checked={equipment['led']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/tCy133w3/led-light.png" /> LED <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['led']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="navigation" checked={equipment['navigation']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/yYPDvJCw/navigation.png" /> Navigation <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['navigation']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="parking-assist" checked={equipment['parking-assist']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/RZZN8MMq/parking-assist.png" /> Parking Assist <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['parking-assist']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="rain-sensor" checked={equipment['rain-sensor']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/x1pcVWC5/rain-sensor.png" /> Rain Sensor <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['rain-sensor']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="seat-heating" checked={equipment['seat-heating']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/MGhHvV1j/seat-heat.png" /> Seat heating <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['seat-heating']}</li></ul></label> </li>
-                                <li  className={tooltipStyles["custom-tooltip"]}><label><input type="checkbox" name="usb" checked={equipment['usb']} onChange={checkBoxSwitcher} /><img className={styles["facility-icon"]} src="https://i.postimg.cc/jjWCxZnb/usb-drive.png" /> USB <ul><li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['usb']}</li></ul></label> </li>
+                            <ul className={styles["equipment"]}>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="4WD" checked={equipment['4WD']} onChange={checkBoxSwitcher} />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/XYsy7r2w/4x4.png" /> 
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>4WD</p> 
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['4WD']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="airbag" checked={equipment['airbag']} onChange={checkBoxSwitcher} />    
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/28FZMch9/airbag.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Airbag</p> 
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['airbag']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="air-conditioning" checked={equipment['air-conditioning']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/8zp6SRbp/aircon.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Air Conditioning</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['air-conditioning']}</li>
+                                            </ul>
+                                        </div>
+                                    </label> 
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="alloy-wheels" checked={equipment['alloy-wheels']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/5tjQHfGD/alloy-wheel.png" />                                             
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Alloy wheels</p>                                            
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['alloy-wheels']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="bluetooth" checked={equipment['bluetooth']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/hGwzTHRv/bluetooth.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Bluetooth</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['bluetooth']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="cd" checked={equipment['cd']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/Wzcdfg3P/cd.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>CD</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['cd']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="cruise-control" checked={equipment['cruise-control']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/qR3tLjpL/cruise-control.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Cruise control</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['cruise-control']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="keyless" checked={equipment['keyless']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/7h15vhGJ/keyless.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Keyless</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['keyless']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="led" checked={equipment['led']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/tCy133w3/led-light.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>LED</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['led']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="navigation" checked={equipment['navigation']} onChange={checkBoxSwitcher} />                                                
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/yYPDvJCw/navigation.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Navigation</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['navigation']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="parking-assist" checked={equipment['parking-assist']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/RZZN8MMq/parking-assist.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Parking Assist</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['parking-assist']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="rain-sensor" checked={equipment['rain-sensor']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/x1pcVWC5/rain-sensor.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Rain Sensor</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['rain-sensor']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="seat-heating" checked={equipment['seat-heating']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/MGhHvV1j/seat-heat.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>Seat heating</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['seat-heating']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
+                                <li className={tooltipStyles["custom-tooltip"]}>
+                                    <label className={styles["equipment-row"]}>
+                                        <div className={styles["top-row"]}>
+                                            <div className={styles["wrapper"]}>
+                                                <input type="checkbox" name="usb" checked={equipment['usb']} onChange={checkBoxSwitcher} />                                            
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <img className={styles["facility-icon"]} src="https://i.postimg.cc/jjWCxZnb/usb-drive.png" />
+                                            </div>
+                                            <div className={styles["wrapper"]}>
+                                                <p>USB</p>
+                                            </div>
+                                        </div>
+                                        <div className={styles["bottom-row"]}>
+                                            <ul>
+                                                <li className={`${tooltipStyles["custom-tooltip-text"]}`}>{equipmentDesc['usb']}</li>
+                                            </ul>
+                                        </div>
+                                    </label>
+                                </li>
                             </ul>
-                            <button className={styles["action"]}>Confirm Equipment</button>
-                            <Link className={styles["action"]} to={`/details/${id}`}>Back to Details</Link>
+                            <div className={styles["controls"]}>
+                                <button className={styles["action"]}>Confirm Equipment</button>
+                                <Link className={styles["action"]} to={`/details/${id}`}>Back to Details</Link>
+                            </div>
                         </form>
                     </div>
                 </main>

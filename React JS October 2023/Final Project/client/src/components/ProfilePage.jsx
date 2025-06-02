@@ -49,6 +49,7 @@ const ProfilePage = () => {
                 </main>
             </div>
             <div className={styles["board"]}>
+                <h1 className={styles["item"]}>My listings</h1>
                 {/* <--If there are published ads--> */}
                 {cars.length != 0 && cars.map((car) =>
                     <ProfileItem key={car['_id']}{...car} />
