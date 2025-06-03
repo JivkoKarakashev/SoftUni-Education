@@ -1,0 +1,25 @@
+/* *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+} */
+
+article {
+    padding: 10px;
+    width: 500px;
+    height: 200px;
+    background-color: lightgray;
+    overflow: auto;
+}
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+p {
+    text-indent: 30px;
+}

@@ -1,0 +1,16 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 2px;
+  padding: 0.5em 1em 0.5em 0.5em;
+  border: 1px solid #000;
+}
+
+p {
+  font-weight: bold;
+  background-color: coral;
+  width: 50%;
+}

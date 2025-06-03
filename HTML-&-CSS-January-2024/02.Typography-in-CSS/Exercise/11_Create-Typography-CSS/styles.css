@@ -1,0 +1,79 @@
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body,
+article,
+input {
+    font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Georgia, serif;
+}
+
+blockquote {
+    border-left: 4px solid rgb(221, 221, 221);
+    font-style: italic;
+}
+
+blockquote p {
+    padding-left: 2em;
+}
+
+blockquote footer p {
+    text-align: right;
+}
+
+ul li {
+    list-style-type: square;
+}
+
+ul ul li {
+    list-style-type: disc;
+}
+
+ul ul ul li {
+    list-style-type: circle;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #d6d6d6;
+    border: 2px solid rgba(0, 0, 0, 0.05)
+}
+
+tr,
+th,
+td {
+    text-align: left;
+    padding: 8px;
+}
+
+td {
+    border: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+tr:nth-child(2n+2) {
+    background-color: rgb(226, 230, 243);
+}
+
+tr:nth-child(2n+1) {
+    background-color: #fff;
+}
+
+tr.head {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+hr {
+    margin: 1.8em 0 1em;
+}

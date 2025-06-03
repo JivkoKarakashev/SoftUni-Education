@@ -1,0 +1,44 @@
+/* *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+} */
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+div {
+    margin-top: 1em;
+    border-top: 3px solid #000;
+}
+
+nav {
+    display: inline-block;
+}
+
+ul, li, a {
+    display: inherit;
+    margin: 0;
+}
+
+span {
+    margin-right: 1em;
+    font-size: 2.5em;
+    font-weight: 700;
+}
+
+li {
+    list-style-type: none;
+    margin: 0 1em;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(0, 187, 0)
+}
+
+h1 {
+    font-weight: normal;
+}

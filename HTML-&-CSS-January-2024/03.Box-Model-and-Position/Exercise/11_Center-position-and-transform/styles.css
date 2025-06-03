@@ -1,0 +1,79 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: rgb(238, 238, 238) ;
+    font-size: 24px;
+    line-height: 1.5
+}
+
+section.card {
+    margin: 1em auto;
+    height: 100vh;
+    width: 50vw;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 0.4em 0.4em 0.4em 0.4em;
+    box-shadow: 0 0 1em 0.2em rgba(0, 0, 0, 0.4);
+}
+
+div.image {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+    
+}
+
+div.image::before {
+    display: block;
+    content: '';
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 0 5em 0.5em rgba(0, 0, 0, 0.7) inset;
+}
+
+div.description {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    overflow: hidden;
+}
+
+img {
+    border-radius: 0.4em 0.4em 0 0;
+    width: 100%;
+    height: 100%;
+}
+
+a {
+    border-radius: 0.2em;
+    text-decoration: none;
+    padding: 0.2em 0.8em;
+    background-color: rgb(0, 153, 0);
+    color: #fff;
+    float: inline-end;
+}
+
+h3 {
+    font-family: Georgia, serif;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+p {
+    padding-top: 1em;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
