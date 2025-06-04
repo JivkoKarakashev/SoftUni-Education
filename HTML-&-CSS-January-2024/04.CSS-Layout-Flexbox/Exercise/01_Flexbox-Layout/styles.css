@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5rem;
+    background-color: #EEE;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100vh;
+    flex-basis: 100%;
+    gap: 2rem;
+}
+
+div.container > * {
+    display: flex;
+    padding: 2rem;
+    background-color: #FFF;
+    box-shadow:  0 0 .25em .2em rgba(0, 0, 0, 0.2);
+    border-radius: 0.4rem;
+    color: #000;
+}
+
+header, footer {
+    flex-basis: 100%;
+}
+
+main {
+    flex-grow: 8;
+    flex-shrink: 1;
+    flex-basis: 40rem;
+}
+
+aside {
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: 20rem;
+}
+

@@ -1,0 +1,42 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding-top: 2em;
+}
+
+a {
+    padding: 1em;
+    background-color: #EEEEEE;
+    border-radius: 50%;
+
+    & i {
+        color: #262626;
+    }
+}
+
+
+a:hover {
+    & i.fa-square-facebook {
+        color: #3B5998;
+    }
+
+    & i.fa-twitter {
+        color: #00ACED;
+    }
+
+    & i.fa-google-plus {
+        color: #DD4B39;
+    }
+
+    & i.fa-linkedin {
+        color: #007BB6;
+    }
+
+    & i.fa-instagram {
+        color: #517FA4;
+    }
+}
