@@ -12,6 +12,7 @@ The aim of the "HTML & CSS" course is to provide basic knowledge of web technolo
 3. [Box Model and Position](/HTML-&-CSS-January-2024/03.Box-Model-and-Position/)
 4. [CSS Layout - Flexbox](/HTML-&-CSS-January-2024/04.CSS-Layout-Flexbox/)
 5. [Responsive Web Design](/HTML-&-CSS-January-2024/05.Responsive-Web-Design/)
+6. [Working with Forms](/HTML-&-CSS-January-2024/06.Working-with-Forms/)
 
 
 ## Certificate
