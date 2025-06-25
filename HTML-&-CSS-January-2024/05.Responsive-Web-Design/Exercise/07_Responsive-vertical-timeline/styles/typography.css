@@ -1,0 +1,12 @@
+html {
+    box-sizing: border-box;
+    font: 14px "Helvetica", sans-serif;
+}
+
+.timeline {
+    border: .3em solid rgb(153, 153, 153);
+}
+
+h3 {
+    font-style: italic;
+}

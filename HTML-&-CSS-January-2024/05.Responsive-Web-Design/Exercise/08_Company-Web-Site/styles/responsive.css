@@ -1,0 +1,40 @@
+@media screen and (max-width: 699px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    nav>a {
+        display: block;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 700px) {
+
+    body {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    header,
+    nav {
+        flex: 0 0 100%;
+    }
+
+    nav>a {
+        display: inline;
+        text-align: left;
+    }
+
+    aside {
+        flex: 0 0 33%;
+    }
+    main {
+        flex: 0 0 66%;
+    }
+
+    footer {
+        flex: 0 0 100%;
+    }
+}

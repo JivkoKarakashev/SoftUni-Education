@@ -1,0 +1,52 @@
+html {
+    box-sizing: border-box;
+    font: 14px "Helvetica", sans-serif;
+}
+
+body {
+    background-color: #EEEEEE;
+}
+
+.row-group:nth-child(2n),
+.trow:nth-child(2n + 1) {
+    background-color: #fff;
+}
+
+.trow:nth-child(1) {
+    background-color: #000;
+    color: #fff;
+}
+
+.row,
+.cell {
+    border: 1px solid #CCCCCC;
+}
+
+.row-group:not(:nth-child(1)) {
+    .row:nth-child(1) {
+        border-right: none;
+    }
+}
+
+.row:not(:nth-child(1)),
+.trow:not(:nth-child(1)) {
+    border-top: none;
+
+    .cell {
+        border-top: none;
+    }
+
+}
+
+.cell:not(:nth-child(1)) {
+    border-left: none;
+}
+
+span,
+p {
+    padding: .5em;
+}
+
+span {
+    font-weight: 600;
+}

@@ -1,0 +1,42 @@
+@import url(reset.css);
+@import url(typography.css);
+@import url(responsive.css);
+
+
+.container {
+    width: 90%;
+    min-width: fit-content;
+    margin: 0 auto;
+    padding-top: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.table.mobile-view {
+    flex: 0 0 100%;
+    overflow-x: scroll;
+    text-wrap: nowrap;
+}
+
+.table.desktop-view {
+    flex: 0 0 100%;
+
+    .trow {
+        display: flex;
+
+        .cell {
+            flex: 1 1 33%;
+        }
+    }
+}
+
+.row {
+    display: flex;
+    min-width: fit-content;
+
+    & span {
+        width: fit-content;
+    }
+
+}

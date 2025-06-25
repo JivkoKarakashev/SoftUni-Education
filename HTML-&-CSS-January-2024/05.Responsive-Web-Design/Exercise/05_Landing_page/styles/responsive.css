@@ -1,0 +1,46 @@
+@media screen and (max-width: 800px) {
+
+    header>nav>.nav.desktop {
+        display: none;
+    }
+
+    header>nav>.nav.mobile>a {
+        display: flex;
+        gap: .5em;
+        align-items: baseline;
+    }
+
+    .our-team>main>.card,
+    .testimonials>main>.card {
+        flex: 0 0 45%;
+        min-width: 45%;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+}
+
+@media screen and (min-width: 801px) {
+
+    header>nav>.nav.desktop {
+        display: flex;
+        gap: 2em;
+        align-items: baseline;
+    }
+
+    header>nav>.nav.mobile {
+        display: none;
+    }
+
+    .our-team>main>.card,
+    .testimonials>main>.card {
+        flex: 0 0 30%;
+        min-width: 30%;
+    }
+
+    footer {
+        flex-direction: row;
+    }
+}

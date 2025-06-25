@@ -1,0 +1,230 @@
+@import url(reset.css);
+@import url(typography.css);
+@import url(responsive.css);
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css");
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em;
+}
+
+header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+body>main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: fit-content;
+    align-items: center;
+    gap: 2em;
+    padding-bottom: 2em;
+    box-shadow: 0 .5em .5em rgba(0, 0, 0, 0.25);
+
+    .need-a-website {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+
+        .left-wrapper {
+            flex: 1 1 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+
+            .button {
+                font-size: .8em;
+                padding: .5em 1em;
+                flex: 0 1 60%;
+                max-width: fit-content;
+                border: 2px solid #000;
+            }
+        }
+
+        .right-wrapper {
+            font-size: 4em;
+            flex: 1 1 30%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .our-team,
+    .testimonials {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+
+        header {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+
+        hr {
+            border: 1px solid #000;
+            width: 60%;
+        }
+
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2em 1em;
+
+            .card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                text-align: center;
+                gap: 1em;
+
+                p {
+                    font-size: .8em;
+                }
+
+                .media {
+                    overflow: hidden;
+                    height: 6em;
+                    box-shadow: inset 0 0 .25em rgba(0, 0, 0, 0.25);
+                    border-radius: 50%;
+                    aspect-ratio: 1/1;
+
+                    i {
+                        text-align: center;
+                        font-size: 6em;
+                        width: 100%;
+                        height: auto;
+                        line-height: unset;
+                    }
+                }
+
+                .name-position>.name {
+                    font-weight: 600;
+                }
+
+                .name-position>.position {
+                    color: #484848;
+                };
+
+                .bio>p {
+                    color: #484848;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+
+    .newsletter {
+        width: 100%;
+        padding: 2em 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.5em 0;
+        background-color: #68347B;
+        color: #fff;
+
+        hr {
+            border: 1px solid #000;
+            width: 25%;
+        }
+
+        header {
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1em;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+
+            input[type=text] {
+                flex: 0 0 30%;
+                border: 1px solid #000;
+            }
+
+            input[type=button] {
+                flex: 0 0 15%;
+                cursor: pointer;
+                background-color: #fff;
+                border: 1px solid #000;
+                border-radius: unset;
+                padding: .25em 0;
+            }
+        }
+    }
+}
+
+footer {
+    width: 80%;
+    display: flex;
+    gap: 2em;
+
+    .row-wrapper {
+        display: flex;
+    }
+
+    >.row-wrapper {
+        flex-direction: column;
+    }
+
+    .title {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        justify-content: center;
+    }
+
+    .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: .25em;
+    }
+
+    .contacts>.row-wrapper {
+        flex-direction: row;
+        align-items: baseline;
+        gap: .5em;
+    }
+
+    .sitemap {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .sitemap>nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 2em;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: .25em;
+        }
+    }
+}
