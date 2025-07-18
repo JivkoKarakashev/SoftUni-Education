@@ -1,0 +1,102 @@
+<!-- The Modal -->
+<li class="li-modal">
+    <div class="modal" #modal (click)="closeModal($event)">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="btn-wrapper close">
+                    <span #closeBtn class="btn close-btn" (click)="closeModal($event)">&times;</span>
+                </div>
+                <h4>Shopping Cart</h4>
+            </div>
+            <div class="modal-body">
+                <section class="header">
+                    <div class="buttons">
+                        <input #checkItAll type="button" id="selectAll" name="selectAll" class="button remove" [value]="selectAllButtonStatement ? 'deselect all' : 'select all'" (click)="toggleSelectAll()">
+                        <input #removeItems type="button" id="remove-item" name="remove-item" class="button remove" value="Remove selected" (click)="onRemoveSelected()">
+                    </div>
+                </section>
+
+                <ng-container *ngIf="loading">
+                    <app-loader />
+                </ng-container>
+
+                <app-errors *ngIf="httpErrorsArr.length || customErrorsArr.length"/>
+
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="!loading">
+                    <fieldset>
+                        <div class="label">
+                            <label class="label-header" for="selectRow">Select</label>
+                            <label class="label-header" for="media">Image</label>
+                            <label class="label-header" for="description">Description</label>
+                            <label class="label-header" for="selectedColor">Color</label>
+                            <label class="label-header" for="selectedSize">Size</label>
+                            <label class="label-header" for="selectedQuantity">Quantity</label>
+                            <label class="label-header" for="price">Price</label>
+                            <label class="label-header" for="product">Amount</label>
+                            <div class="label-header">Remove</div>
+                        </div>
+                        <ng-container formArrayName="itms">
+                            <ng-container #rows *ngFor=" let itm of cartItems; let i = index; trackBy: trackById">
+                                <div [formGroupName]="i" class="itms">
+                                    <input formControlName="checked" [checked]="itm.checked" class="itm selectRow" type="checkbox" name="selectRow" id="selectRow" (change)="toggleSelect($event, i)">
+                                    <input #imgUrl formControlName="image" [hidden]="true" [value]="itm.image" class="media" type="text" name="media" id="media">
+                                    <img class="itm" src="{{itm.image}}" alt="image">
+                                    <input #descrp formControlName="description" [hidden]="true" [value]="itm.description" class="description" type="text" name="description" id="description">
+                                    <span class="itm description">{{itm.description}}</span>
+                                    <select #colorSelectElements class="itm decorate" formControlName="selectedColor" name="selectedColor" id="selectedColor" [value]="itm.selectedColor" (change)="onColorChange($event, i)" required>
+                                        <option value="">select color</option>
+                                        <option class="decorate" #colorOptionElements *ngFor="let col of itm.color; let i = index;" [value]="col" [attr.data-color]="col">{{col}}</option>
+                                    </select>
+                                    <select class="itm" formControlName="selectedSize" name="selectedSize" id="selectedSize" [value]="itm.selectedSize" (change)="onSizeChange(i)" required>
+                                        <option value="">select size</option>
+                                        <option *ngFor="let sz of itm.size; let i = index;" [value]="sz">{{sz}}</option>
+                                    </select>
+                                    <input class="itm" formControlName="selectedQuantity" class="quantity" type="number" name="selectedQuantity" id="selectedQuantity" min="1" [max]="itm.quantity" [value]="itm.selectedQuantity" (change)="onQuantityChange(i)" required>
+                                    <input formControlName="price" [hidden]="true" [value]="itm.price" class="price" type="number" name="price" id="price">
+                                    <p class="itm price">${{itm.price}}</p>
+                                    <input formControlName="product" [hidden]="true" [value]="" class="prod" type="number" name="product" id="product">
+                                    <span class="itm prod">${{itm.product}}</span>
+                                    <div class="itm buttons">
+                                        <button class="button remove" type="button" (click)="onRemoveItem(i)">Remove item</button>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </ng-container>
+
+                        <div class="subtotal">
+                            <span class="title">Subtotal:</span>
+                            <span #subTotalEl class="amount">${{subtotalValue.toFixed(2)}}</span>
+                        </div>
+                        <div class="discount">
+                            <span class="title">
+                                <select class="discount" formControlName="discount" name="discount" (change)="onDiscountChange($event)" required>
+                                    <option *ngFor="let disc of discountCodes; let i = index;" [selected]="disc.code === discount.value.code">{{disc.code}}</option>
+                                </select>
+                            </span>
+                            <span class="amount">&minus;${{discountValue.toFixed(2)}}</span>
+                        </div>
+                        <div class="shipping">
+                            <span class="title">
+                                <select class="shipping" formControlName="shipping" name="shipping" (change)="onShippingChange($event)" required>
+                                    <option *ngFor="let method of shippingMethods; let i = index;" [selected]="method.name === shipping.value.name">{{method.name}}</option>
+                                </select>
+                            </span>
+                            <span class="amount">${{shippingValue.toFixed(2)}}</span>
+                        </div>
+                        <div class="total modal-footer">
+                            <span class="title">Total:</span>
+                            <span class="amount">${{totalValue.toFixed(2)}}</span>
+                        </div>
+
+                        <div class="buttons">
+                            <input [disabled]="!user || form.invalid || !cartItems.length || shipping.value.name === 'shipping method' || discount.value.code === 'discount code'" class="button finish" type="submit" value="Checkout">
+                            <a class="button cancel" (click)="onContinue()">Continue shopping</a>
+                        </div>
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</li>

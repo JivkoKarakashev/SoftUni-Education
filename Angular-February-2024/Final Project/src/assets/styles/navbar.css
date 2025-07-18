@@ -1,0 +1,163 @@
+header.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #22292F;
+}
+
+nav.desktop {
+  display: none;
+}
+
+nav.mobile {
+  display: flex;
+  justify-content: center;
+  padding: 0 1em;
+  background-color: #3d3d3d;
+  width: 100%;
+}
+
+a.title-icon::before,
+p.nav-icon::before,
+a.nav-icon::before {
+  display: inline-block;
+  font-family: FontAwesome;
+  padding-right: 0.3em;
+}
+
+.title-icon,
+.nav-icon {
+  padding: .5em;
+}
+
+a.title-icon.store::before {
+  content: "\f54e";
+}
+
+a.nav-icon.user::before {
+  content: "\f21b";
+}
+
+a.nav-icon.guest::before {
+  content: "\f508";
+}
+
+a.nav-icon.logout::before {
+  content: "\e5a9";
+}
+
+a.nav-icon.profile::before {
+  content: "\f2bb";
+}
+
+a.nav-icon.home::before {
+  content: "\f015";
+}
+
+a.nav-icon.list:before {
+  content: "\f03a";
+}
+
+a.nav-icon.basket:before {
+  content: "\f291";
+}
+
+a.nav-icon.square-plus:before {
+  content: "\f0fe";
+}
+
+a.nav-icon.circle-left:before {
+  content: "\f137";
+}
+
+a.nav-icon.circle-right:before {
+  content: "\f138";
+}
+
+p.nav-icon.menu:before {
+  content: "\f0c9";
+}
+
+a.nav-icon.github::before {
+  content: "\f09b";
+  padding-right: unset;
+}
+
+a.nav-icon.linkedin::before {
+  content: "\f08c";
+  padding-right: unset;
+}
+
+a.nav-icon.x-twitter::before {
+  content: "\e61a";
+  padding-right: unset;
+}
+
+div.site-title,
+a.title-icon,
+p.nav-icon,
+a.nav-icon {
+  color: #5270FF;
+  border: 1px solid rgba(55, 255, 15, 0.001);
+  transition: .3s;
+}
+
+div.user,
+div.owner {
+  & span {
+    font-weight: 600;
+
+    & a {
+      color: #ffffff;
+    }
+
+    & a.disabled {
+      pointer-events: none;
+    }
+  }
+}
+
+ul.navbar li {
+  cursor: pointer;
+}
+
+@media screen and (pointer: coarse) {
+
+  a.title-icon,
+  p.nav-icon,
+  a.nav-icon {
+    border: 1px solid #5cb85c;
+    border-radius: 0.2em;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+@media screen and (pointer: fine) {
+
+  a.title-icon:hover,
+  a.title-icon:focus,
+  p.nav-icon:hover,
+  p.nav-icon:focus,
+  a.nav-icon:hover,
+  a.nav-icon:focus {
+    border: 1px solid #5cb85c;
+    border-radius: 0.2em;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+div.site-title {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+}
+
+div.site-title:active,
+p.nav-icon:active,
+a.nav-icon:active {
+  filter: blur(1px);
+}

@@ -1,0 +1,42 @@
+.section-footer {
+    min-width: fit-content;
+    background-color: #22292f;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    .author {
+        color: #fff;
+        font-weight: 600;
+        font-size: 1.2em;
+        flex: 1 1 45%;
+        text-align: center;
+    }
+
+    .footer {
+        flex: 1 1 45%;
+
+        .navbar {
+            min-width: fit-content;
+            padding: .5em 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5em;
+
+            :is(li) {
+                flex: 1 1 30%;
+            }
+        }
+    }
+
+    .nav-icon {
+        font-size: 2em;
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}

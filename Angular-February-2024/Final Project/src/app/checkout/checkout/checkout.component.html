@@ -1,0 +1,14 @@
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+
+<app-errors *ngIf="httpErrorsArr.length || customErrorsArr.length" />
+
+<section class="section-checkout">
+    <div class="container">
+        <!-- Display a payment form -->
+        <div id="checkout">
+            <!-- Checkout will insert the payment form here -->
+        </div>
+    </div>
+</section>

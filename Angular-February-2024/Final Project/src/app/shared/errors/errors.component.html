@@ -1,0 +1,20 @@
+<ng-container *ngIf="httpErrorsArr.length">
+    <div *ngFor="let err of httpErrorsArr" class="alert">{{err.error.message || err.message}}
+        <div *ngIf="err.status === 403 && err.error.message === 'Invalid access token'" class="buttons">
+            <a class="nav-icon logout" (click)="resignIn()">Please click HERE to re-sign in</a>
+        </div>
+    </div>
+</ng-container>
+<ng-container *ngIf="customErrorsArr.length">
+    <!-- <ng-container *ngFor="let err of errorsArr"> -->
+        <div *ngFor="let err of customErrorsArr" class="alert">
+            <p>{{err.message}}</p>
+            <div *ngIf="err.isUserError" class="buttons">
+                <a class="nav-icon guest" routerLink="/auth/login">sign in</a>
+                <p>OR</p>
+                <a class="nav-icon user" routerLink="/auth/register">register</a>
+            </div>
+        </div>
+    <!-- <div class="alert">{{httpError.error?.message}}</div> -->
+    <!-- </ng-container> -->
+</ng-container>

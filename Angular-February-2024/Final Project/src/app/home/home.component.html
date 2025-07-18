@@ -1,0 +1,31 @@
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+
+<app-errors *ngIf="httpErrorsArr.length" />
+
+<div class="wrapper" *ngIf="!loading">
+    <div class="left-wrapper">
+        <section class="section-home">
+            <div class="container">
+                <ng-container *ngFor="let currCatSlideArr of lastTwoSlidesArr; index as i">
+                    <span class="title-carousel">Recently added {{(currCatSlideArr[i].capitalizedCat)}}</span>
+                    <ngx-slick-carousel class="carousel" #slickModalClothes="slick-carousel" [config]="slideConfig">
+                        <div ngxSlickItem *ngFor="let slide of currCatSlideArr; index as i; trackBy: trackById" class="slide">
+                            <a [routerLink]="['/catalog/', slide.cat, slide.subCat, slide._id]">
+                                <img src="{{ slide.image }}" alt="image" class="img-carousel">
+                            </a>
+                        </div>
+                    </ngx-slick-carousel>
+                </ng-container>
+            </div>
+        </section>
+    </div>
+    <div class="right-wrapper">
+        <div class="sticky">
+            <a class="cart" routerLink="/cart">
+                <span class="counter">{{cartItemsCounter}}</span><i class="fi fi-rr-shopping-cart-check"></i>
+            </a>
+        </div>
+    </div>
+</div>

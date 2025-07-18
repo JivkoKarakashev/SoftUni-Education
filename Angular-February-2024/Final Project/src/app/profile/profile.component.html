@@ -1,0 +1,28 @@
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+
+<app-errors *ngIf="httpErrorsArr.length || customErrorsArr.length" />
+
+<section *ngIf="!httpErrorsArr.length && !customErrorsArr.length" id="profile" class="section-profile">
+    <div class="container">
+        <nav class="tabs">
+            <ul>
+                <li #tabLiElements>
+                    <a routerLink="/auth/profile/overview" (click)="switchActiveTab($event, 'overview')">Overview</a>
+                </li>
+                <li #tabLiElements>
+                    <a routerLink="/auth/profile/purchases" (click)="switchActiveTab($event, 'purchases')">Purchases</a>
+                </li>
+                <li #tabLiElements>
+                    <a routerLink="/auth/profile/sales" (click)="switchActiveTab($event, 'sales')">Sales</a>
+                </li>
+            </ul>
+        </nav>
+        <app-overview *ngIf="activeTab === 'overview'" />
+        <app-purchases *ngIf="activeTab === 'purchases'" />
+        <app-sales *ngIf="activeTab === 'sales'" />
+
+
+    </div>
+</section>

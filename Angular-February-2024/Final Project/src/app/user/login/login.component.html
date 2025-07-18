@@ -1,0 +1,38 @@
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+<section class="section-login" *ngIf="!loading">
+    <div class="wrapper">
+        <div class="title">
+            <h2>Login</h2>
+        </div>
+        <app-errors *ngIf="httpErrorsArr.length" />
+        <form [formGroup]="loginForm" (ngSubmit)="login()" method="post" action="#">
+            <fieldset>
+                <div class="row" [ngClass]="{'error': (loginForm.get('email')?.touched || loginForm.get('email')?.dirty) && loginForm.get('email')?.invalid}">
+                    <i class="fa-solid fa-at"></i>
+                    <input formControlName="email" class="fieldCtr" type="text" id="email" name="email" placeholder="Email" required appTrim>
+                </div>
+                <ng-container *ngIf="loginForm.get('email')?.touched || loginForm.get('email')?.dirty">
+                    <div *ngIf="loginForm.get('email')?.errors?.['required']" class="err-msg">Eamil is required.</div>
+                    <div *ngIf="!loginForm.get('email')?.errors?.['required'] && loginForm.get('email')?.errors?.['invalidEmail']" class="err-msg">Valid email is required.</div>
+                </ng-container>
+                <div class="row" [ngClass]="{'error': (loginForm.get('password')?.touched || loginForm.get('password')?.dirty) && loginForm.get('password')?.invalid}">
+                    <i class="fas fa-lock"></i>
+                    <input formControlName="password" class="fieldCtr" type="password" id="password" name="password" placeholder="Password" required appTrim>
+                </div>
+                <ng-container *ngIf="loginForm.get('password')?.touched || loginForm.get('password')?.dirty">
+                    <div *ngIf="loginForm.get('password')?.errors?.['required']" class="err-msg">Password is required.</div>
+                </ng-container>
+                <div class="row button">
+                    <input [disabled]="loginForm.invalid" type="submit" value="Login">
+                </div>
+                <div class="signup-link">
+                    <p>Not a member?</p>
+                    <a routerLink="/auth/register">Signup now</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</section>

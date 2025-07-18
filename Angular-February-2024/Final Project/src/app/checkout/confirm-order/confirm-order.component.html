@@ -1,0 +1,73 @@
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+
+<app-errors *ngIf="httpErrorsArr.length || customErrorsArr.length" />
+
+<section id="success" class="section-confirm-order" *ngIf="!loading">
+    <div class="container" *ngIf="session_status$==='complete'">
+        <section class="component-section component-header">
+            <h2>Thank You for Order</h2>
+            <p>A confirmation email will be sent to <span id="customer-email">{{customer_email$}}</span>&#8228;</p>
+            <p>If you have any questions&comma; please email <a href="mailto:yourEmailHere@example.com">yourEmailHere&#8228;yourDomainHere&#8228;com</a>&#8228;</p>
+            <section class="summary-address">
+                <div class="summary">
+                    <h3>Summary</h3>
+                    <span>Ready to Ship</span>
+                    <span>&num;{{dbOrder?.referenceNumber}} &bull; {{dbOrderDate}}</span>
+                    <span>&dollar;{{dbOrder?.total?.toFixed(2)}}</span>
+                </div>
+                <div class="address">
+                    <h3>Shipping Address</h3>
+                    <span>{{dbOrder?.username}}</span>
+                    <span>{{dbOrder?.address?.phone}}</span>
+                    <span>{{dbOrder?.address?.street_building}}&comma; {{dbOrder?.address?.postalCode}}</span>
+                    <span>{{dbOrder?.address?.city}}&comma; {{dbOrder?.address?.postalCode}}</span>
+                    <span>{{dbOrder?.address?.region}}&comma; {{dbOrder?.address?.country}}</span>
+                </div>
+            </section>
+        </section>
+
+        <section class="component-section component-body">
+            <h4>Your item in this order</h4>
+            <span>Order number&colon; &num;{{dbOrder?.referenceNumber}}</span>
+            <ng-container *ngFor="let itm of tradedItems">
+                <div class="item">
+                    <div class="media">
+                        <img class="img" src="{{itm.image}}" alt="Product picture">
+                    </div>
+                    <div class="item-details">
+                        <h5>{{itm.subCat}}</h5>
+                        <span>{{itm.description}}</span>
+                        <span>Brand&colon; {{itm.brand}}</span>
+                        <span>Color&colon; {{itm.selectedColor}}</span>
+                        <span>Size&colon; {{itm.selectedSize}}</span>
+                        <span>Quantity&colon; {{itm.selectedQuantity}}</span>
+                        <span>Amount&colon; &dollar;{{itm.product.toFixed(2)}}</span>
+                    </div>
+                </div>
+            </ng-container>
+        </section>
+
+        <section class="component-section component-footer">
+            <div class="wrapper">
+                <div class="subtotal">
+                    <span class="title">Subtotal&colon;</span>
+                    <span class="amount">&dollar;{{dbOrder?.subtotal?.toFixed(2)}}</span>
+                </div>
+                <div class="discount">
+                    <span class="title">{{dbOrder?.discount?.code}}</span>
+                    <span class="amount">&minus;&dollar;{{dbOrder?.discountValue?.toFixed(2)}}</span>
+                </div>
+                <div class="shipping">
+                    <span class="title">{{dbOrder?.shippingMethod?.name}}</span>
+                    <span class="amount">&dollar;{{dbOrder?.shippingValue?.toFixed(2)}}</span>
+                </div>
+                <div class="total">
+                    <span class="title">Total&colon;</span>
+                    <span class="amount">&dollar;{{dbOrder?.total?.toFixed(2)}}</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</section>

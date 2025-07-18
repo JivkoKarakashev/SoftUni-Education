@@ -1,0 +1,16 @@
+<section class="content overview">
+    <h2>Overview</h2>
+
+    <div class="charts-wrapper">
+        <div *ngIf="purchasesSalesChrtReadyToShow" class="chart-container">
+            <canvasjs-chart [options]="purchasesSalesChartOpts" />
+        </div>
+        <div *ngIf="purchaseCategoriesChrtReadyToShow" class="chart-container">
+            <canvasjs-chart [options]="purchaseCategoriesChartOpts" />
+        </div>
+        <div *ngIf="salesCategoriesChrtReadyToShow" class="chart-container">
+            <canvasjs-chart [options]="salesCategoriesChartOpts" />
+        </div>
+    </div>
+
+</section>

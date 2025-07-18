@@ -1,0 +1,202 @@
+<app-errors *ngIf="httpErrorsArr.length" />
+
+<ng-container *ngIf="loading">
+    <app-loader />
+</ng-container>
+
+<ng-confirm />
+
+<section class="catalog-wrapper" *ngIf="!loading">
+    
+    <nav class="pagination" *ngIf="paginationConfig.collectionSize > 0">
+        <div class="navbar upper">
+            <ul class="left-navbar-wrapper">
+                <li><button class="openbtn" [ngClass]="{'active': sidebarState === 'open'}" type="button" (click)="onSidebarToggle()">&#9776;Toggle Filters</button></li>
+            </ul>
+            <ul class="right-navbar-wrapper">
+                <li [ngClass]="{'disabled': selected.page === 1}"><a class="nav-icon circle-left" [ngClass]="{'disabled': selected.page === 1}" (click)="onPageChange(selected.page - 1)"></a></li>
+                <li class="disabled"><span>Page {{ selected.page }} &#8725; {{ paginationConfig.totalPages }}</span></li>
+                <li [ngClass]="{'disabled': selected.page === paginationConfig.totalPages}"><a class="nav-icon circle-right" [ngClass]="{'disabled': selected.page === paginationConfig.totalPages}" (click)="onPageChange(selected.page + 1)"></a></li>
+                <li>
+                    <label for="selected-page-upper">Page:&nbsp;</label>
+                    <select #selectedPage id="selected-page-upper" name="selected-page-upper" (change)="onPageSelect(selectedPage.value)">
+                        <option *ngFor="let page of pageOptionArr" [selected]="page === selected.page" [value]="page">{{ page }}</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="page-size-upper">Items per page:&nbsp;</label>
+                    <select #selectedPageSize id="page-size-upper" name="page-size-upper" (change)="onPageSizeSelect(selectedPageSize.value)">
+                        <option *ngFor="let size of pageSizeOptionArr" [selected]="size === selected.pageSize" [value]="size">{{ size }}</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+
+        <div *ngIf="paginationConfig.collectionSize > 0" class="sidebar show" [ngClass]="{'show': sidebarState === 'open'}" [class.disabled]="filterEventsDisabled">
+            <div class="closebtn" (click)="onSidebarToggle()"><i class="fa-regular fa-circle-xmark fa-xl"></i></div>
+
+            <fieldset>
+                <legend>Size</legend>
+                <div class="filter size-filter">
+                    <div class="clear">
+                        <button class="clear-btn" type="button" (click)="onSizeFilterClear()">Clear</button>
+                    </div>
+                    <div class="filter-btns">
+                        <ng-container *ngFor="let sizeOpt of sizeFilterOptions; let i = index; trackBy: trackByIdx">
+                            <button #sizeBtns class="size-btn filter-btn" type="button" [id]="'size'+sizeOpt" [value]="sizeOpt" (click)="onSizeFilterChange(i)">{{sizeOpt}}</button>
+                        </ng-container>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Color</legend>
+                <div class="filter color-filter">
+                    <div class="clear">
+                        <button class="clear-btn" type="button" (click)="onColorFilterClear()">Clear</button>
+                    </div>
+                    <div class="filter-btns">
+                        <ng-container *ngFor="let colorOpt of colorFilterOptions; let i = index; trackBy: trackByIdx">
+                            <button #colorBtns class="color-btn filter-btn" type="button" [id]="'color'+colorOpt.hex" [value]="colorOpt.name" [style.background-color]="colorOpt.hex" [style.color]="colorOpt.hexInverted" (click)="onColorFilterChange(i)">{{colorOpt.name}}</button>
+                        </ng-container>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Brand</legend>
+                <div class="filter brand-filter">
+                    <div class="clear">
+                        <button class="clear-btn" type="button" (click)="onBrandFilterClear()">Clear</button>
+                    </div>
+                    <div class="filter-btns">
+                        <ng-container *ngFor="let brandOpt of brandFilterOptions; let i = index; trackBy: trackByIdx">
+                            <button #brandBtns class="brand-btn filter-btn" type="button" [id]="'brand'+brandOpt" [value]="brandOpt" (click)="onBrandFilterChange(i)">{{brandOpt}}</button>
+                        </ng-container>
+                    </div>
+                </div>
+            </fieldset>
+    
+            <fieldset>
+                <legend>Price</legend>
+                <div class="filter price-filter">
+                    <div class="clear">
+                        <button class="clear-btn" type="button" (click)="onPriceFilterClear()">Clear</button>
+                    </div>
+                    <div class="filter-sliders">
+                        <label for="price-from"></label>
+                        <input #fromPriceSlider class="price-slider filter-slider from-slider" type="range" [min]="priceFilterOptions.at(0)" [max]="priceFilterOptions.at(priceFilterOptions.length - 1)" [value]="priceFilterOptions.at(0)" id="price-from" name="price-from" (change)="onPriceSliderChange()" />
+                        <label for="price-to"></label>
+                        <input #toPriceSlider class="price-slider filter-slider to-slider" type="range" [min]="priceFilterOptions.at(0)" [max]="priceFilterOptions.at(priceFilterOptions.length - 1)" [value]="priceFilterOptions.at(priceFilterOptions.length - 1)" id="price-to" name="price-to" (change)="onPriceSliderChange()" />
+                    </div>
+                    <div class="filter-input">
+                        <div class="filter-input-left-wrapper">
+                            <label for="price-from-input">Min</label>
+                            <input #fromPriceInput class="price-input from-input" type="number" [min]="priceFilterOptions.at(0)" [max]="priceFilterOptions.at(priceFilterOptions.length - 1)" [value]="priceFilterOptions.at(0)" id="price-from-input" name="price-from-input" (change)="onPriceInputChange()" />
+                        </div>
+                        <div class="filter-input-right-wrapper">
+                            <label for="price-to-input">Max</label>
+                            <input #toPriceInput class="price-input to-input" type="number" [min]="priceFilterOptions.at(0)" [max]="priceFilterOptions.at(priceFilterOptions.length - 1)" [value]="priceFilterOptions.at(priceFilterOptions.length - 1)" id="price-to-input" name="price-to-input" (change)="onPriceInputChange()" />
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+
+        <div class="left-right-wrapper">
+
+            <div class="left-wrapper">
+                <section class="section-catalog">
+                    <div class="container">
+                        <div class="items">
+                            <ul class="items"
+                            [@.disabled]="catalogItemEnterLeaveAnimationDisabled"
+                            [@catalogItemEnterLeaveAnimation]="catalogItemEnterLeaveAnimationState"
+                            (@catalogItemEnterLeaveAnimation.start)="onItemEnterOrLeaveAnimation($event)"
+                            (@catalogItemEnterLeaveAnimation.done)="onItemEnterOrLeaveAnimation($event)"
+                            >
+                                <li class="item" *ngFor="let item of filteredItems; let i = index; trackBy: trackById" [id]="item._id"
+                                [@.disabled]="catalogItemDeleteAnimationDisabled"
+                                [@catalogItemDeleteAnimation]="catalogItemDeleteAnimationStateArr[i] === 'delete' ? 'delete' : 'static'"
+                                (@catalogItemDeleteAnimation.start)="onItemDeleteAnimation($event, i)"
+                                (@catalogItemDeleteAnimation.done)="onItemDeleteAnimation($event, i)"
+                                >
+                                    <div class="image">
+                                        <a href="/catalog/{{item.cat}}/{{item.subCat}}/{{item._id}}" (click)="onNavigate($event, ['/catalog/', item.cat, item.subCat, item._id].join('/'))">
+                                            <img [src]="item.image" alt="image" />
+                                        </a>
+                                    </div>
+                                    <p>Description: <span>{{item.description}}</span></p>
+                                    <p>Size: <span>{{item.size.join('/')}}</span></p>
+                                    <p>Color:
+                                        <span *ngFor="let col of item.color" class="color" [attr.color]="col" #spanColorElements></span>
+                                    </p>
+                                    <p>Brand: <span>{{item.brand}}</span></p>
+                                    <p>Remaining: <span>{{item.quantity}}</span></p>
+                                    <p>Price: <span><strong>${{item.price}}</strong></span></p>
+                                    <div class="buttons">
+                                        <ul class="buttons"
+                                        [@addToCartButtonAnimation]="addToCartButtonAnimationStateArr[i].animateState"
+                                        (@addToCartButtonAnimation.start)="onAddToCartButtonAnimation($event, i)"
+                                        (@addToCartButtonAnimation.done)="onAddToCartButtonAnimation($event, i)"
+                                        >
+                                            <li *ngIf="item._ownerId !== user?._id && !item.inCart && item.quantity > 0" class="button buy" (click)="onAddToCart(i)">
+                                                <span class="btn-text">{{addToCartButtonAnimationStateArr[i].btnText}}</span>
+                                            </li>
+                                            <li *ngIf="item._ownerId === user?._id" class="button edit" (click)="onEdit(i)">Edit</li>
+                                            <li *ngIf="item._ownerId === user?._id" class="button delete" (click)="onDelete(i)">Delete</li>
+                                        </ul>
+                                    </div>
+                                    <p *ngIf="item.inCart" [ngClass]="{'in-cart': item.inCart}">Already in cart</p>
+                                    <p *ngIf="item.quantity === 0" class="sold">This item is sold out and out of stock!</p>
+                                    <p *ngIf="item._ownerId === user?._id && item.quantity > 0" [ngClass]="{owner: item._ownerId === user?._id}">You are owner! You can't purchase this Item!</p>
+                                </li>
+                
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-wrapper">
+                <button *ngIf="showScrollUpBtn" class="scroll-top" type="button" (click)="onScrollTop()">
+                    <i class="fa-solid fa-angles-up fa-2xl"></i>
+                </button>
+                <div class="sticky">
+                    <a class="cart" href="/cart" (click)="onNavigate($event, '/cart')">
+                        <span class="counter">{{cartItemsCounter}}</span><i class="fi fi-rr-shopping-cart-check"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <nav class="pagination" *ngIf="paginationConfig.collectionSize > 0">
+        <div class="navbar bottom">
+            <ul class="left-navbar-wrapper"></ul>
+            <ul class="right-navbar-wrapper">
+                <li [ngClass]="{'disabled': selected.page === 1}"><a class="nav-icon circle-left" [ngClass]="{'disabled': selected.page === 1}" (click)="onPageChange(selected.page - 1)"></a></li>
+                <li class="disabled"><span>Page {{ selected.page }} &#8725; {{ paginationConfig.totalPages }}</span></li>
+                <li [ngClass]="{'disabled': selected.page === paginationConfig.totalPages}"><a class="nav-icon circle-right" [ngClass]="{'disabled': selected.page === paginationConfig.totalPages}" (click)="onPageChange(selected.page + 1)"></a></li>
+                <li>
+                    <label for="selected-page-bottom">Page:&nbsp;</label>
+                    <select #selectedPage id="selected-page-bottom" name="selected-page-bottom" (change)="onPageSelect(selectedPage.value)">
+                        <option *ngFor="let page of pageOptionArr" [selected]="page === selected.page">{{ page }}</option>
+                    </select>
+                </li>
+                <li>
+                    <label for="page-size-bottom">Items per page:&nbsp;</label>
+                    <select #selectedPageSize id="page-size-bottom" name="page-size-bottom" (change)="onPageSizeSelect(selectedPageSize.value)">
+                        <option *ngFor="let size of pageSizeOptionArr" [selected]="size === selected.pageSize" [value]="size">{{ size }}</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
